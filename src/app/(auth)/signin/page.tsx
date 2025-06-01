@@ -1,21 +1,23 @@
-import { BrushCleaning } from "lucide-react";
-import React from "react";
-import { LoginForm } from "./form";
+import { LoginForm } from "@/components/login-form";
 
-function SigninPage() {
-	return (
-		<div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
-			<div className="flex w-full max-w-sm flex-col gap-6">
-				<a href="#" className="flex items-center gap-2 self-center font-medium">
-					<div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-						<BrushCleaning className="size-4" />
-					</div>
-					Acme Inc.
-				</a>
-				<LoginForm />
-			</div>
-		</div>
-	);
+export default function LoginPage() {
+  return (
+    <div className="relative min-h-screen flex items-center justify-center bg-muted overflow-hidden">
+      {/* Blurred background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-110 filter blur-md"
+        style={{
+          backgroundImage: "url('/assets/background.png')",
+        }}
+      />
+
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
+
+      {/* Foreground content */}
+      <div className="relative z-10 w-full max-w-sm md:max-w-3xl p-6 md:p-10">
+        <LoginForm />
+      </div>
+    </div>
+  );
 }
-
-export default SigninPage;
